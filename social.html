@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<title>«Дом что надо» — наши соцсети</title>
+	<meta name="description" content="Страницы Дом что надо в мессенджерах и соцсетях: строим дома из газобетона в Москве и Московской области.">
+	<link rel="preload" as="font" type="font/woff2" crossorigin href="./assets/fonts/Montserrat-SemiBold.woff2">
+	<link rel="preload" as="font" type="font/woff2" crossorigin href="./assets/fonts/Montserrat-Regular.woff2">
+	<link rel="stylesheet" href="./assets/css/style.min.css?_v=20261019">
+	<link rel="stylesheet" href="./assets/css/brand.css?_v=20261019">
+	<style>
+		.social-page {
+			padding: 40px 0 80px;
+		}
+
+		.social-page__head {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 20px;
+			margin-bottom: 40px;
+		}
+
+		.social-page__back {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			color: #fff;
+			text-decoration: none;
+			font-size: 15px;
+			opacity: .75;
+		}
+
+		.social-page__back:hover {
+			opacity: 1;
+			color: #d9976a;
+		}
+
+		.social-page__title {
+			font-size: 40px;
+			font-weight: 600;
+			line-height: 120%;
+			margin: 0 0 14px;
+			color: #fff;
+		}
+
+		.social-page__lead {
+			max-width: 720px;
+			font-size: 17px;
+			line-height: 155%;
+			color: rgba(255, 255, 255, .7);
+			margin: 0 0 40px;
+		}
+
+		.social-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 20px;
+		}
+
+		.social-card {
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			padding: 26px;
+			border-radius: 18px;
+			background: rgba(255, 255, 255, .05);
+			border: 1px solid rgba(255, 255, 255, .1);
+			color: #fff;
+		}
+
+		.social-card__head {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+		}
+
+		.social-card__icon {
+			width: 52px;
+			height: 52px;
+			border-radius: 14px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: none;
+		}
+
+		.social-card__icon svg {
+			width: 26px;
+			height: 26px;
+		}
+
+		.social-card__name {
+			font-size: 19px;
+			font-weight: 600;
+			line-height: 125%;
+		}
+
+		.social-card__meta {
+			font-size: 13px;
+			color: rgba(255, 255, 255, .55);
+		}
+
+		.social-card__desc {
+			font-size: 15px;
+			line-height: 150%;
+			color: rgba(255, 255, 255, .78);
+			margin: 0;
+		}
+
+		.social-card__link {
+			margin-top: auto;
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 15px;
+			font-weight: 600;
+			color: #d9976a;
+			text-decoration: none;
+		}
+
+		.social-card__link:hover {
+			color: #fff;
+		}
+
+		.social-card__posts {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		.social-post {
+			display: flex;
+			gap: 12px;
+			align-items: flex-start;
+			padding: 12px;
+			border-radius: 12px;
+			background: rgba(255, 255, 255, .05);
+		}
+
+		.social-post__img {
+			width: 62px;
+			height: 62px;
+			border-radius: 10px;
+			object-fit: cover;
+			flex: none;
+		}
+
+		.social-post__text {
+			font-size: 14px;
+			line-height: 145%;
+			color: rgba(255, 255, 255, .8);
+		}
+
+		.social-post__date {
+			display: block;
+			margin-top: 4px;
+			font-size: 12px;
+			color: rgba(255, 255, 255, .4);
+		}
+
+		.social-card_map {
+			grid-column: 1 / -1;
+		}
+
+		.social-card__links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 22px;
+		}
+
+		.map-block {
+			position: relative;
+			height: 220px;
+			border-radius: 14px;
+			overflow: hidden;
+			background: #2c3a34;
+		}
+
+		.map-block__grid {
+			position: absolute;
+			inset: 0;
+			background-image:
+				linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+			background-size: 46px 46px;
+		}
+
+		.map-block__road {
+			position: absolute;
+			background: rgba(217, 151, 106, .28);
+		}
+
+		.map-block__road_1 {
+			left: -10%;
+			top: 58%;
+			width: 130%;
+			height: 16px;
+			transform: rotate(-6deg);
+		}
+
+		.map-block__road_2 {
+			left: 34%;
+			top: -20%;
+			width: 12px;
+			height: 140%;
+			transform: rotate(9deg);
+		}
+
+		.map-block__pin {
+			position: absolute;
+			left: 50%;
+			top: 48%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.map-block__pin-dot {
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			background: #bf6f3c;
+			border: 3px solid #fff;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, .45);
+		}
+
+		.map-block__pin-text {
+			font-size: 13px;
+			font-weight: 600;
+			color: #fff;
+			background: rgba(15, 16, 18, .72);
+			padding: 3px 9px;
+			border-radius: 20px;
+		}
+
+		.social-note {
+			margin-top: 36px;
+			padding: 18px 22px;
+			border-radius: 14px;
+			background: rgba(191, 111, 60, .12);
+			border: 1px solid rgba(191, 111, 60, .35);
+			font-size: 14px;
+			line-height: 150%;
+			color: rgba(255, 255, 255, .8);
+		}
+
+		@media (max-width:47.99875em) {
+			.social-page {
+				padding: 24px 0 60px;
+			}
+
+			.social-page__title {
+				font-size: 28px;
+			}
+
+			.social-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.social-page__head {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 14px;
+			}
+		}
+	</style>
+</head>
+
+<body class="_dark-back">
+
+	<div class="social-page">
+		<div class="_container social-page__container">
+			<div class="social-page__head">
+				<a href="./index.html" class="social-page__back">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M11 3L5 9L11 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+							stroke-linejoin="round" />
+					</svg>
+					На главную
+				</a>
+				<a href="./index.html#contacts" class="social-page__back">Контакты</a>
+			</div>
+
+			<h1 class="social-page__title">Мы в соцсетях</h1>
+			<p class="social-page__lead">
+				Показываем стройку в реальном времени, публикуем сметы и отвечаем на вопросы.
+				Подпишитесь на канал — там первыми появляются даты стартов и свободные бригады на месяц вперёд.
+			</p>
+
+			<div class="social-grid">
+
+				<!-- Telegram -->
+				<article class="social-card" id="telegram">
+					<div class="social-card__head">
+						<span class="social-card__icon" style="background:#2AABEE">
+							<svg viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M24 0.794014C23.8774 1.3314 23.7447 1.86411 23.6272 2.40149C22.8511 5.98093 22.0749 9.56037 21.2987 13.1398C20.9464 14.7566 20.594 16.3735 20.2519 17.9949C20.063 18.8828 18.8936 19.308 18.1072 18.7613C15.2528 16.766 12.4034 14.766 9.54894 12.766C9.51319 12.7426 9.47745 12.7099 9.42638 12.6678C9.61021 12.5136 9.78383 12.3688 9.96255 12.2239C13.3277 9.44822 16.6979 6.67719 20.063 3.89682C20.206 3.77999 20.3387 3.63981 20.4357 3.49028C20.5583 3.29869 20.446 3.14915 20.206 3.19588C19.9915 3.23794 19.7719 3.31738 19.5881 3.42485C17.9643 4.35943 16.3455 5.30803 14.7217 6.24728C11.9336 7.86878 9.14553 9.4856 6.36255 11.1118C6.19915 11.2052 6.06638 11.2192 5.88766 11.1632C4.26894 10.6585 2.65021 10.1632 1.03149 9.66317C0.571915 9.52299 0.194043 9.28934 0 8.85943V8.56037C0.199149 8.2099 0.53617 8.01831 0.924255 7.8828C7.80255 5.40616 14.686 2.9342 21.5694 0.466911C22.0187 0.308033 22.4732 0.149154 22.9379 0.0416777C23.4945 -0.0844906 23.7855 0.0603692 24 0.490276V0.789341V0.794014Z"
+									fill="white" />
+							</svg>
+						</span>
+						<div>
+							<div class="social-card__name">Telegram</div>
+							<div class="social-card__meta">@domchtonado · 1 240 подписчиков</div>
+						</div>
+					</div>
+					<p class="social-card__desc">
+						Основной канал: даты стартов, сметы, ход работ на объектах, свободные бригады.
+					</p>
+					<div class="social-card__posts">
+						<div class="social-post">
+							<img class="social-post__img" src="./assets/img/a1obl.webp" alt="Дом в Истре">
+							<div>
+								<div class="social-post__text">Сдали дом 168 м² в Истринском районе. Срок — 6 месяцев.</div>
+								<span class="social-post__date">12 марта</span>
+							</div>
+						</div>
+						<div class="social-post">
+							<img class="social-post__img" src="./assets/img/a2obl.webp" alt="Дом в Красногорске">
+							<div>
+								<div class="social-post__text">Открыли 3 бригады на апрель. Занимаем участки с апреля.</div>
+								<span class="social-post__date">28 февраля</span>
+							</div>
+						</div>
+					</div>
+					<a class="social-card__link" href="#telegram">Открыть канал →</a>
+				</article>
+
+				<!-- MAX -->
+				<article class="social-card" id="max">
+					<div class="social-card__head">
+						<span class="social-card__icon" style="background:linear-gradient(135deg,#8B5CF6 0%,#4F46E5 100%)">
+							<svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd"
+									d="M11.2364 21.9372C9.07734 21.9372 8.074 21.6207 6.32997 20.3545C5.22682 21.7789 1.73352 22.8922 1.58118 20.9876C1.58118 19.5578 1.26599 18.3496 0.908784 17.0306C0.483284 15.4056 0 13.596 0 10.9739C0 4.71139 5.11651 0 11.1786 0C17.2459 0 21.9999 4.94352 21.9999 11.0319C22.0097 13.9108 20.8819 16.6759 18.8639 18.7204C16.8459 20.765 14.1027 21.9219 11.2364 21.9372ZM11.3257 5.41308C8.37342 5.26008 6.07257 7.31241 5.56302 10.5307C5.14277 13.195 5.88871 16.4397 6.52434 16.6086C6.82902 16.6824 7.59597 16.0599 8.074 15.5798C8.86445 16.1282 9.78492 16.4576 10.7426 16.5347C12.213 16.6057 13.6526 16.0945 14.7518 15.1109C15.851 14.1273 16.5223 12.7499 16.6208 11.2746C16.6782 9.79631 16.1556 8.35443 15.1653 7.2592C14.1751 6.16398 12.7963 5.50295 11.3257 5.41836V5.41308Z"
+									fill="white" />
+							</svg>
+						</span>
+						<div>
+							<div class="social-card__name">MAX</div>
+							<div class="social-card__meta">@domchtonado · чат отдела продаж</div>
+						</div>
+					</div>
+					<p class="social-card__desc">
+						Отвечаем на вопросы по проектам и комплектациям, присылаем расчёт в чат за 10 минут.
+					</p>
+					<div class="social-card__posts">
+						<div class="social-post">
+							<img class="social-post__img" src="./assets/img/a3obl.webp" alt="Дом в Домодедове">
+							<div>
+								<div class="social-post__text">Расчёт по дому 212 м² с гаражом — от 15,4 млн ₽ под ключ.</div>
+								<span class="social-post__date">4 марта</span>
+							</div>
+						</div>
+					</div>
+					<a class="social-card__link" href="#max">Написать в MAX →</a>
+				</article>
+
+				<!-- ВКонтакте -->
+				<article class="social-card" id="vk">
+					<div class="social-card__head">
+						<span class="social-card__icon" style="background:#0077FF">
+							<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M12.82 17.35c-5.33 0-8.54-3.66-8.68-9.72h2.76c.1 4.6 2.1 6.55 3.72 6.96V7.63h2.64v3.85c1.56-.17 3.2-1.97 3.76-3.85h2.6c-.42 2.36-2.14 4.15-3.37 4.87 1.23.59 3.21 2.16 3.97 4.95h-2.86c-.58-1.98-2.02-3.5-4.1-3.7v3.7h-.04Z"
+									fill="white" />
+							</svg>
+						</span>
+						<div>
+							<div class="social-card__name">ВКонтакте</div>
+							<div class="social-card__meta">«Дом что надо» · 830 подписчиков</div>
+						</div>
+					</div>
+					<p class="social-card__desc">
+						Отзывы заказчиков, разборы проектов, ответы на частые вопросы о газобетоне.
+					</p>
+					<div class="social-card__posts">
+						<div class="social-post">
+							<img class="social-post__img" src="./assets/img/a4obl.webp" alt="Дом в Чехове">
+							<div>
+								<div class="social-post__text">Почему газобетон 400 мм не нужно утеплять: расчёт и замеры.</div>
+								<span class="social-post__date">26 февраля</span>
+							</div>
+						</div>
+					</div>
+					<a class="social-card__link" href="#vk">Открыть сообщество →</a>
+				</article>
+
+				<!-- Instagram -->
+				<article class="social-card" id="instagram">
+					<div class="social-card__head">
+						<span class="social-card__icon"
+							style="background:linear-gradient(135deg,#F9CE34 0%,#EE2A7B 50%,#6228D7 100%)">
+							<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.8" />
+								<circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8" />
+								<circle cx="17.2" cy="6.8" r="1.1" fill="white" />
+							</svg>
+						</span>
+						<div>
+							<div class="social-card__name">Instagram</div>
+							<div class="social-card__meta">@domchtonado.ru · 2 100 подписчиков</div>
+						</div>
+					</div>
+					<p class="social-card__desc">
+						Архитектура, планировки, подбор материалов и истории домов в загородных районах.
+					</p>
+					<div class="social-card__posts">
+						<div class="social-post">
+							<img class="social-post__img" src="./assets/img/a5obl.webp" alt="Дом в Подольске">
+							<div>
+								<div class="social-post__text">Одноэтажный дом 96 м²: пять планировок, от 6,4 млн ₽.</div>
+								<span class="social-post__date">19 февраля</span>
+							</div>
+						</div>
+					</div>
+					<a class="social-card__link" href="#instagram">Открыть профиль →</a>
+				</article>
+
+			</div>
+
+			<!-- Карта и контакты -->
+			<article class="social-card social-card_map" id="map">
+				<div class="social-card__head">
+					<span class="social-card__icon" style="background:rgba(255,255,255,.08)">
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="white" stroke-width="1.7" />
+							<circle cx="12" cy="10" r="2.6" stroke="white" stroke-width="1.7" />
+						</svg>
+					</span>
+					<div>
+						<div class="social-card__name">Офис Дом что надо</div>
+						<div class="social-card__meta">г. Подольск, ул. Победы, 12, офис 315</div>
+					</div>
+				</div>
+				<div class="map-block">
+					<div class="map-block__grid" aria-hidden="true"></div>
+					<div class="map-block__road map-block__road_1"></div>
+					<div class="map-block__road map-block__road_2"></div>
+					<div class="map-block__pin">
+						<span class="map-block__pin-dot"></span>
+						<span class="map-block__pin-text">Дом что надо</span>
+					</div>
+				</div>
+				<p class="social-card__desc">
+					Приём заявок — в офисе по предварительной записи, стройка — в 40 км от МКАД по
+					Симферопольскому шоссе. Позвоните, и инженер подскажет, с чего начать на участке.
+				</p>
+				<div class="social-card__links">
+					<a class="social-card__link" href="tel:+74951207799">+7 495 120-77-99 →</a>
+					<a class="social-card__link" href="mailto:info@domchtonado.ru">info@domchtonado.ru →</a>
+				</div>
+			</article>
+
+			<div class="social-note">
+				Это демонстрационная страница макета. Реальные аккаунты, телефон, адрес и реквизиты
+				подставляются при запуске сайта — до этого все ссылки с главной ведут сюда.
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

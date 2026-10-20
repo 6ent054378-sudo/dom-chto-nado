@@ -1,0 +1,587 @@
+/* idealhome77 — переопределения бренда поверх style.min.css (desrep) */
+/* База: тёмно-зелёный #35463e. Акцент: терракота #bf6f3c */
+
+:root {
+	--ih-base: #35463e;
+	--ih-accent: #bf6f3c;
+	--ih-accent-dark: #9a5527;
+	--ih-accent-light: #d9976a;
+}
+
+/* --- классы-акценты (в оригинале _green-*) --- */
+._accent-text {
+	color: var(--ih-accent);
+}
+
+._accent-back {
+	color: #fff;
+	background-color: var(--ih-accent);
+}
+
+._accent-reveal {
+	position: relative;
+	overflow: hidden;
+	background-color: transparent !important;
+}
+
+._accent-reveal::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background-color: var(--ih-accent);
+	z-index: -1;
+}
+
+/* --- кнопки и интерактив ---
+   Главное действие всегда акцентное (терракота), тёмно-зелёный — база и фон.
+   Так кнопки не теряются на тёмных секциях. --- */
+._main-btn {
+	background: var(--ih-accent);
+	color: #fff;
+}
+
+._main-btn:hover {
+	color: #fff;
+	background: var(--ih-accent-dark);
+}
+
+._main-btn:active {
+	color: #fff;
+	background: #84461f;
+}
+
+/* вторичные кнопки на светлом фоне — тёмно-зелёные */
+.form__button {
+	background: var(--ih-base);
+}
+
+.form__button:hover {
+	background: #29362f;
+}
+
+._main-btn:active {
+	color: #fff;
+	background: var(--ih-base);
+}
+
+._slider-arrow-dark:hover {
+	background-color: var(--ih-accent);
+}
+
+._slider-arrow-green {
+	background-color: var(--ih-accent);
+}
+
+._link:hover,
+.form__checkbox-label a:hover,
+.section-26__value_phone:hover,
+.header__nav-link:hover,
+.header__phone:hover,
+.header__callback:hover,
+.footer__politics:hover {
+	color: var(--ih-accent);
+}
+
+._green-reveal::before {
+	background-color: var(--ih-accent);
+}
+
+/* --- секция 1 (первый экран) --- */
+.section-1__green-text::before,
+.section-6__title span::before {
+	background-color: var(--ih-accent);
+}
+
+.section-1__advantage:not(:last-of-type)::after {
+	background-color: var(--ih-accent);
+}
+
+/* --- секция 6 (команда) --- */
+.section-6__title span::before {
+	background-color: var(--ih-accent);
+}
+
+/* --- квиз (секция 32) --- */
+.section-32__option-check,
+.section-32__option:hover .section-32__option-check,
+.section-32__option .section-32__input:checked~.section-32__option-check {
+	background-color: var(--ih-accent);
+	background-image: url(../img/active.svg);
+}
+
+.section-32__form-submit {
+	background: var(--ih-accent) !important;
+	color: #fff !important;
+}
+
+.section-32__custom-select-trigger:hover,
+.section-32__custom-select-trigger[aria-expanded=true] {
+	border-color: var(--ih-accent);
+}
+
+.section-32__custom-select-option[aria-selected=true] {
+	color: var(--ih-accent);
+}
+
+/* --- каталог (секция 15) --- */
+.catalog-card__arrow {
+	background-color: var(--ih-accent);
+}
+
+.catalog-card__arrow::after {
+	color: #fff;
+}
+
+.catalog-card__arrow:hover {
+	background-color: #fff;
+}
+
+.catalog-card__arrow:hover::after {
+	color: var(--ih-accent);
+}
+
+.catalog-card__title:hover {
+	color: var(--ih-accent);
+}
+
+.swiper-slide-thumb-active .catalog-card__thumb {
+	border-color: var(--ih-accent);
+}
+
+/* --- секция 27 (карточки) --- */
+.section-27__block:hover .section-27__arrow {
+	background-color: var(--ih-accent);
+}
+
+/* --- формы --- */
+.form__toggle label:has(input:checked) {
+	color: #fff;
+	background-color: var(--ih-accent);
+	border-color: var(--ih-accent);
+}
+
+.form__toggle {
+	border-color: var(--ih-accent);
+	color: var(--ih-accent);
+}
+
+.form__toggle:hover {
+	color: var(--ih-accent);
+}
+
+/* --- слайдеры --- */
+._slider-scrollbar .swiper-scrollbar-drag:hover {
+	background-color: var(--ih-accent-dark) !important;
+}
+
+/* --- выставочный дом (секция 23) --- */
+.swiper-slide-thumb-active .section-23__thumb {
+	border-color: var(--ih-accent);
+}
+
+/* --- прогресс (секция 24) --- */
+.section-24__progress-segment.is-active {
+	background-color: var(--ih-accent);
+}
+
+/* --- логотип --- */
+.header__logo {
+	height: 58px;
+	width: auto;
+	max-width: 280px;
+	object-fit: contain;
+}
+
+.header__logo-wrap {
+	display: flex;
+	align-items: center;
+}
+
+@media (max-width:47.99875em) {
+	.header__logo {
+		height: 38px;
+	}
+}
+
+/* --- экран успешной отправки --- */
+.form__success {
+	padding: 30px 10px;
+	text-align: center;
+}
+
+.form__success-icon {
+	width: 62px;
+	height: 62px;
+	margin: 0 auto 18px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	background: var(--ih-accent);
+}
+
+.form__success-title {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 130%;
+	margin: 0 0 10px;
+	color: #1a1a1a;
+}
+
+.form__success-text {
+	font-size: 16px;
+	line-height: 145%;
+	margin: 0;
+	color: #5a595e;
+}
+
+.section-32__form .form__success {
+	color: #1a1a1a;
+}
+
+/* --- карта: заглушка, если не задан API-ключ Яндекс.Карт --- */
+.map-fallback {
+	height: 100%;
+	min-height: 420px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 30px;
+	text-align: center;
+	background:
+		radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .07) 0, transparent 55%),
+		linear-gradient(135deg, #42544b 0%, #35463e 100%);
+	color: #fff;
+}
+
+.map-fallback__title {
+	font-size: 26px;
+	font-weight: 600;
+}
+
+.map-fallback__addr {
+	font-size: 17px;
+	opacity: .85;
+}
+
+.map-fallback__link {
+	margin-top: 6px;
+	color: #d9976a;
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.map-fallback__link:hover {
+	color: #fff;
+}
+
+/* --- секция 22: белый верх карточки, как в референсе (текст читается) --- */
+.section-22__card {
+	position: relative;
+}
+
+.section-22__card::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg,
+			rgba(255, 255, 255, .97) 0%,
+			rgba(255, 255, 255, .95) 26%,
+			rgba(255, 255, 255, .72) 42%,
+			rgba(255, 255, 255, .3) 60%,
+			rgba(255, 255, 255, 0) 78%);
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* --- секция 12: карточки отзывов (вместо видео-превью) --- */
+.review-card {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	padding: 28px 26px 24px;
+	border-radius: 16px;
+	background: rgba(255, 255, 255, .06);
+	border: 1px solid rgba(255, 255, 255, .12);
+	color: #fff;
+}
+
+.review-card__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.review-card__rating {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 15px;
+	letter-spacing: 2px;
+	color: #fab900;
+}
+
+.review-card__rating b {
+	font-family: Montserrat, Arial, sans-serif;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: 0;
+	color: #fff;
+}
+
+.review-card__source {
+	font-size: 12px;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, .45);
+}
+
+.review-card__text {
+	margin: 0;
+	font-size: 15px;
+	line-height: 155%;
+	color: rgba(255, 255, 255, .88);
+}
+
+.review-card__bottom {
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding-top: 14px;
+	border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.review-card__name {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.review-card__object {
+	font-size: 13px;
+	color: rgba(255, 255, 255, .55);
+}
+
+.section-12__slider .swiper-slide {
+	height: auto;
+}
+
+@media (max-width:47.99875em) {
+	.review-card {
+		padding: 22px 20px 20px;
+		gap: 14px;
+	}
+
+	.review-card__text {
+		font-size: 14px;
+	}
+}
+
+/* --- секция 28: иконки читаемее (в референсе 30px — слишком мелко) --- */
+.section-28__item-icon svg {
+	width: 46px;
+	height: 46px;
+	stroke-width: 2.1;
+}
+
+@media (max-width:47.99875em) {
+	.section-28__item-icon svg {
+		width: 40px;
+		height: 40px;
+		stroke-width: 2.1;
+	}
+}
+
+/* --- квиз: контакты в правой панели --- */
+.section-32__consult-phone {
+	display: inline-block;
+	margin-top: 14px;
+	font-size: 26px;
+	font-weight: 600;
+	color: #fff;
+	text-decoration: none;
+	letter-spacing: -.01em;
+}
+
+.section-32__consult-phone:hover {
+	color: #d9976a;
+}
+
+.section-32__consult-note {
+	margin: 8px 0 0;
+	font-size: 14px;
+	line-height: 140%;
+	color: rgba(255, 255, 255, .6);
+}
+
+/* --- читаемость текста поверх фото --- */
+
+/* секция 10 «Материалы»: подпись и список внизу карточки */
+.section-10__card::after {
+	content: "";
+	position: absolute;
+	inset: auto 0 0 0;
+	height: 78%;
+	background: linear-gradient(180deg,
+			rgba(15, 16, 18, 0) 0%,
+			rgba(15, 16, 18, .55) 40%,
+			rgba(15, 16, 18, .88) 100%);
+	z-index: 0;
+	pointer-events: none;
+}
+
+/* секция 14 «Районы»: название в центре слайда */
+.section-14__slide::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(ellipse at center,
+			rgba(15, 16, 18, .78) 0%,
+			rgba(15, 16, 18, .35) 45%,
+			rgba(15, 16, 18, 0) 72%);
+	z-index: 1;
+	pointer-events: none;
+}
+
+.section-14__slide-title {
+	z-index: 2;
+	text-shadow: 0 2px 18px rgba(0, 0, 0, .55);
+}
+
+/* --- секция 28: читаемость пунктов поверх фото --- */
+.section-28__house {
+	z-index: 0;
+}
+
+.section-28__container {
+	position: relative;
+}
+
+.section-28__house::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg,
+			rgba(15, 16, 18, .35) 0%,
+			rgba(15, 16, 18, .55) 60%,
+			rgba(15, 16, 18, .8) 100%);
+}
+
+.section-28__items,
+.section-28__header {
+	position: relative;
+	z-index: 1;
+}
+
+/* --- секция 30: подписи строк не наезжают друг на друга --- */
+.section-30__label {
+	font-size: 17px;
+	line-height: 120%;
+	text-shadow: 0 2px 14px rgba(0, 0, 0, .6);
+}
+
+@media (max-width:47.99875em) {
+	.section-30__label {
+		font-size: 14px;
+		top: 12px;
+		padding-inline: 8px;
+	}
+}
+
+/* --- секция 30: тёмная подложка под подпись на светлом фото --- */
+.section-30__row-pic::after {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 55%;
+	background: linear-gradient(180deg, rgba(15, 16, 18, .72), rgba(15, 16, 18, 0));
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* --- секция 6: аватары команды остаются цветными (иначе фильтр greyscale гасит бренд) --- */
+.section-6__card-image img {
+	-webkit-filter: none;
+	filter: none;
+}
+
+/* --- секция 27: текст поверх фото читается (в референсе overlay был без стилей) --- */
+.section-27__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+	background: linear-gradient(180deg,
+			rgba(15, 16, 18, .78) 0%,
+			rgba(15, 16, 18, .55) 45%,
+			rgba(15, 16, 18, .88) 100%);
+}
+
+.section-27__title-vertical {
+	text-shadow: 0 2px 14px rgba(0, 0, 0, .55);
+}
+
+/* --- секция 27: гарантированная читаемость заголовка и списка --- */
+.section-27__title-main {
+	text-shadow: 0 2px 20px rgba(0, 0, 0, .8), 0 0 60px rgba(0, 0, 0, .5);
+}
+
+.section-27__list li {
+	text-shadow: 0 1px 12px rgba(0, 0, 0, .8);
+}
+
+.section-27__list li::before {
+	background: #d9976a;
+}
+
+/* --- секция 3 «О компании»: фото дома видно всегда, белый текст читается --- */
+.section-3__item>img {
+	opacity: 1;
+}
+
+.section-3__item::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background: linear-gradient(180deg,
+			rgba(15, 16, 18, .45) 0%,
+			rgba(15, 16, 18, .62) 45%,
+			rgba(15, 16, 18, .8) 100%);
+}
+
+.section-3__item-inner {
+	position: relative;
+	z-index: 1;
+}
+
+.section-3__item:hover>img {
+	opacity: 1;
+	transform: scale(1.04);
+	transition: transform .5s ease;
+}
+
+/* --- квиз: правая панель «Нужна консультация?» --- */
+.section-32__right {
+	background-image:
+		linear-gradient(200deg, rgba(15, 16, 18, .78) 0%, rgba(15, 16, 18, .5) 45%, rgba(15, 16, 18, .9) 100%),
+		url(../img/quiz-right.webp);
+	background-size: cover;
+	background-position: center;
+}
+
+.section-32__consult-title {
+	color: #fff;
+}
+
+.section-32__consult-note {
+	color: rgba(255, 255, 255, .75);
+}
