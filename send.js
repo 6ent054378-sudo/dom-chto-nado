@@ -13,7 +13,7 @@
  * JSON нагрузки: name, phone, channel, answers, utm, page, sentAt.
  */
 
-const WEBHOOK_URL = "/api/lead";
+const WEBHOOK_URL = /\.github\.io$/i.test(window.location.hostname) ? "" : "/api/lead";
 const YANDEX_METRIKA_ID = 0;
 const SUCCESS_TITLE = "Спасибо! Заявка отправлена.";
 const SUCCESS_TEXT =
