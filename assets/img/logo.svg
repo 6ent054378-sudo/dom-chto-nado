@@ -5,5 +5,5 @@
     <path d="M20 52 V38 H28 V52"/>
   </g>
   <text x="54" y="30" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="700" fill="#35463e" letter-spacing="-0.3">Дом</text>
-  <text x="54" y="52" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="700" fill="#bf6f3c" letter-spacing="-0.3">что надо</text>
+  <text x="54" y="52" font-family="Montserrat, Arial, sans-serif" font-size="19" font-weight="700" fill="#2f6f53" letter-spacing="-0.3">что надо</text>
 </svg>

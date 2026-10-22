@@ -1,11 +1,11 @@
-/* idealhome77 — переопределения бренда поверх style.min.css (desrep) */
-/* База: тёмно-зелёный #35463e. Акцент: терракота #bf6f3c */
+/* idealhome77 - переопределения бренда поверх style.min.css (desrep) */
+/* База: тёмно-зелёный #35463e. Акцент: терракота #2f6f53 */
 
 :root {
 	--ih-base: #35463e;
-	--ih-accent: #bf6f3c;
-	--ih-accent-dark: #9a5527;
-	--ih-accent-light: #d9976a;
+	--ih-accent: #2f6f53;
+	--ih-accent-dark: #245641;
+	--ih-accent-light: #7fb59a;
 }
 
 /* --- классы-акценты (в оригинале _green-*) --- */
@@ -34,7 +34,7 @@
 }
 
 /* --- кнопки и интерактив ---
-   Главное действие всегда акцентное (терракота), тёмно-зелёный — база и фон.
+   Главное действие всегда акцентное (терракота), тёмно-зелёный - база и фон.
    Так кнопки не теряются на тёмных секциях. --- */
 ._main-btn {
 	background: var(--ih-accent);
@@ -48,10 +48,10 @@
 
 ._main-btn:active {
 	color: #fff;
-	background: #84461f;
+	background: #1c4333;
 }
 
-/* вторичные кнопки на светлом фоне — тёмно-зелёные */
+/* вторичные кнопки на светлом фоне - тёмно-зелёные */
 .form__button {
 	background: var(--ih-base);
 }
@@ -270,7 +270,7 @@
 
 .map-fallback__link {
 	margin-top: 6px;
-	color: #d9976a;
+	color: #7fb59a;
 	font-weight: 600;
 	text-decoration: underline;
 	text-underline-offset: 4px;
@@ -384,7 +384,7 @@
 	}
 }
 
-/* --- секция 28: иконки читаемее (в референсе 30px — слишком мелко) --- */
+/* --- секция 28: иконки читаемее (в референсе 30px - слишком мелко) --- */
 .section-28__item-icon svg {
 	width: 46px;
 	height: 46px;
@@ -411,7 +411,7 @@
 }
 
 .section-32__consult-phone:hover {
-	color: #d9976a;
+	color: #7fb59a;
 }
 
 .section-32__consult-note {
@@ -443,9 +443,9 @@
 	position: absolute;
 	inset: 0;
 	background: radial-gradient(ellipse at center,
-			rgba(15, 16, 18, .78) 0%,
-			rgba(15, 16, 18, .35) 45%,
-			rgba(15, 16, 18, 0) 72%);
+			rgba(15, 16, 18, .85) 0%,
+			rgba(15, 16, 18, .55) 50%,
+			rgba(15, 16, 18, .25) 100%);
 	z-index: 1;
 	pointer-events: none;
 }
@@ -538,7 +538,7 @@
 }
 
 .section-27__list li::before {
-	background: #d9976a;
+	background: #7fb59a;
 }
 
 /* --- секция 3 «О компании»: фото дома видно всегда, белый текст читается --- */
@@ -572,10 +572,10 @@
 /* --- квиз: правая панель «Нужна консультация?» --- */
 .section-32__right {
 	background-image:
-		linear-gradient(200deg, rgba(15, 16, 18, .78) 0%, rgba(15, 16, 18, .5) 45%, rgba(15, 16, 18, .9) 100%),
+		linear-gradient(180deg, rgba(15, 16, 18, .72) 0%, rgba(15, 16, 18, .35) 32%, rgba(15, 16, 18, 0) 55%, rgba(15, 16, 18, .92) 100%),
 		url(../img/quiz-right.webp);
 	background-size: cover;
-	background-position: center;
+	background-position: center top;
 }
 
 .section-32__consult-title {
@@ -583,5 +583,65 @@
 }
 
 .section-32__consult-note {
-	color: rgba(255, 255, 255, .75);
+	color: rgba(255, 255, 255, .8);
 }
+
+/* --- первый экран: статичное фото вместо видео, медленный наезд --- */
+.section-1__bg-image {
+	transform-origin: 50% 60%;
+	animation: ihHeroZoom 28s ease-in-out infinite alternate;
+}
+
+@keyframes ihHeroZoom {
+	from { transform: scale(1); }
+	to { transform: scale(1.07); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.section-1__bg-image { animation: none; }
+}
+
+/* ihQuizScrim: затемнение фона квиза, чтобы текст читался на любом фото */
+.section-32 {
+	background-image: linear-gradient(rgba(15, 16, 18, .66), rgba(15, 16, 18, .72)), url(../img/sec32.webp);
+}
+
+/* квиз: убираем верхний внешний отступ, из-за него по шву была видна подложка другого фото */
+.section-32 {
+	margin-top: 0;
+}
+
+
+/* fix4: убран декоративный дом блока 28, он перекрывал верх блока теста */
+.section-28__house { display: none; }
+
+/* 3D-визуализации: альбомные слайды */
+.section-8__card { padding-bottom: 62%; }
+
+/* карточки этапов: заголовок сверху, фото во всю ширину снизу */
+.section-22__card {
+	position: relative;
+	min-height: 440px;
+	background: #fff;
+	padding-inline: 0;
+	justify-content: flex-start;
+}
+.section-22__card-title { padding-inline: 25px; }
+.section-22__card > img {
+	position: absolute;
+	inset: auto 0 0 0;
+	width: 100%;
+	height: 56%;
+	object-fit: cover;
+}
+@media (max-width: 61.99875em) {
+	.section-22__card { min-height: 380px; }
+	.section-22__card-title { padding-inline: 15px; }
+}
+
+/* подвал: логотип разработчика */
+.footer__tfa { align-items: center; gap: 10px; }
+.footer__tfa img { height: 30px; width: auto; display: block; opacity: .9; transition: opacity .2s; }
+.footer__tfa:hover img { opacity: 1; }
+.footer__tfa span { white-space: nowrap; }
+.footer__tfa img { height: 26px; }

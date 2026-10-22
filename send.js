@@ -1,23 +1,23 @@
 "use strict";
 
 /*
- * idealhome77 — отправка заявок.
+ * Дом что надо: отправка заявок.
  *
  * Что настроить перед запуском:
- *   1. WEBHOOK_URL — адрес, принимающий заявку (Telegram-бот, CRM, Cloudflare Worker).
- *      Пока он пустой, сайт работает в демо-режиме: заявка собирается, показывается
- *      экран «Спасибо», но никуда не уходит. Пустые заявки не теряются молча.
- *   2. YANDEX_METRIKA_ID — номер счётчика Яндекс.Метрики (0 = не подключён).
+ *   1. WEBHOOK_URL: адрес приёма заявок. По умолчанию /api/lead (функция api/lead.js
+ *      на Vercel, шлёт в Telegram и при желании в CRM). Нужны переменные окружения
+ *      TG_BOT_TOKEN и TG_CHAT_ID. Если WEBHOOK_URL пустой, сайт работает в демо-режиме.
+ *   2. YANDEX_METRIKA_ID - номер счётчика Яндекс.Метрики (0 = не подключён).
  *   3. ym_client_id в целях Метрики формируется автоматически.
  *
  * JSON нагрузки: name, phone, channel, answers, utm, page, sentAt.
  */
 
-const WEBHOOK_URL = "";
+const WEBHOOK_URL = "/api/lead";
 const YANDEX_METRIKA_ID = 0;
 const SUCCESS_TITLE = "Спасибо! Заявка отправлена.";
 const SUCCESS_TEXT =
-  "Инженер idealhome77 перезвонит в течение 15 минут в рабочее время и пришлёт предварительную смету.";
+  "Инженер «Дом что надо» перезвонит в течение 15 минут в рабочее время и пришлёт предварительную смету.";
 
 document.addEventListener("DOMContentLoaded", function () {
   const UTM_KEYS = [
@@ -203,9 +203,8 @@ document.addEventListener("DOMContentLoaded", function () {
       showSuccess(form);
     }
 
-    // Демо-режим: бэкенд не подключён — показываем подтверждение, данные в консоль
+    // Демо-режим: бэкенд не подключён, показываем только подтверждение
     if (!WEBHOOK_URL) {
-      console.log("[idealhome77] WEBHOOK_URL не задан — заявка не отправлена:", payload);
       window.setTimeout(finishOk, 400);
       return;
     }
@@ -221,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch(function (error) {
         console.error("Ошибка отправки заявки:", error);
-        alert("Не удалось отправить заявку. Позвоните нам: +7 495 120-77-77");
+        alert("Не удалось отправить заявку. Позвоните нам: +7 495 120-77-99");
         resetSubmit(btnSubmit, originalButtonText);
       })
       .finally(function () {
